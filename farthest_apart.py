@@ -1,4 +1,4 @@
-from common import distance
+from common import distance, connect_beginning_to_end
 
 
 def _find_furthest_apart_cities(distances, n):
@@ -57,4 +57,4 @@ def farthest_insertion(points):
         visited[farthest_point] = True
 
     tour_as_points = [points[i] for i in tour]
-    return tour_as_points
+    return connect_beginning_to_end(tour_as_points)

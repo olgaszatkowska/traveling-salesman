@@ -1,7 +1,7 @@
 import random
 import math
 
-from common import generate_tour, plot, visualize_tour, tour_length
+from common import connect_beginning_to_end, generate_tour, plot, visualize_tour, tour_length
 
 
 def accept_solution(delta, temperature):
@@ -38,7 +38,7 @@ def simulated_annealing(t_max, t_min, e_th, a, tour):
 
     while temperature > t_min and energy > e_th:
         candidate_tour = generate_new_solution_permutation(tour)
-        candidate_energy = tour_length(candidate_tour)
+        candidate_energy = tour_length(connect_beginning_to_end(candidate_tour))
         energy_delta = candidate_energy - energy
 
         accept, th = accept_solution(energy_delta, temperature)

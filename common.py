@@ -10,12 +10,11 @@ def distance(point_1, point_2):
     x_2, y_2 = point_2
     return sqrt((x_2 - x_1) ** 2 + (y_2 - y_1) ** 2)
 
+def connect_beginning_to_end(points):
+    return [points[i] for i in range(len(points) - 1)] + [points[-1], points[0]]
 
 def generate_tour(num_points, x_range, y_range):
-    points = [
-        (random.randint(*x_range), random.randint(*y_range)) for _ in range(num_points)
-    ]
-    return [points[i] for i in range(len(points) - 1)] + [points[-1], points[0]]
+    return [(random.randint(*x_range), random.randint(*y_range)) for _ in range(num_points)]
 
 def tour_length(tour):
     total = 0

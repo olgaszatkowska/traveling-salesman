@@ -1,7 +1,9 @@
-from common import distance
+from copy import deepcopy
+from common import distance, connect_beginning_to_end
 
 
 def nearest_neighbor(points: list[list[int]]):
+    points = deepcopy(points)
     tour = [points[0]]
     points.remove(points[0])
 
@@ -19,4 +21,4 @@ def nearest_neighbor(points: list[list[int]]):
         tour.append(new_neighbor)
         points.remove(new_neighbor)
 
-    return tour
+    return connect_beginning_to_end(tour)
