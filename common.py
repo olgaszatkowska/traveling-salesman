@@ -15,8 +15,7 @@ def generate_tour(num_points, x_range, y_range):
     points = [
         (random.randint(*x_range), random.randint(*y_range)) for _ in range(num_points)
     ]
-
-    return [(points[i], points[i + 1]) for i in range(len(points) - 1)] + [(points[-1], points[0])]
+    return [points[i] for i in range(len(points) - 1)] + [points[-1], points[0]]
 
 def tour_length(tour):
     total = 0
