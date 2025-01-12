@@ -12,10 +12,12 @@ def distance(point_1, point_2):
 
 
 def generate_tour(num_points, x_range, y_range):
-    return [
+    points = [
         (random.randint(*x_range), random.randint(*y_range)) for _ in range(num_points)
     ]
-    
+
+    return [(points[i], points[i + 1]) for i in range(len(points) - 1)] + [(points[-1], points[0])]
+
 def tour_length(tour):
     total = 0
     for i, vertex in enumerate(tour):
